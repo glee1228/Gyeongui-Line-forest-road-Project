@@ -1,0 +1,88 @@
+﻿ALTER TABLE place DROP PRIMARY KEY CASCADE ;
+ALTER TABLE parking DROP PRIMARY KEY CASCADE;
+DROP TABLE place;
+DROP TABLE parking;
+DROP TABLE walker;
+DROP TABLE pk_timetable;
+DROP TABLE restaurant;
+
+-- Place Table Create SQL
+CREATE TABLE place
+(
+    id       VARCHAR2(20)    NOT NULL, 
+    name     VARCHAR2(60)    NULL, 
+    type     VARCHAR2(20)    NULL, 
+    usage    VARCHAR2(30)    NULL, 
+    lat      NUMBER(24,12)      NULL, 
+    lng      NUMBER(24,12)      NULL, 
+    CONSTRAINT PLACE_PK PRIMARY KEY (id)
+);
+
+
+
+-- parking Table Create SQL
+CREATE TABLE parking
+(
+    id          VARCHAR2(20)    NULL, 
+    parkid      VARCHAR2(20)    NOT NULL, 
+    district    VARCHAR2(20)    NULL, 
+    address     VARCHAR2(120)    NULL, 
+    volume      NUMBER          NULL, 
+    phone       VARCHAR2(20)    NULL, 
+    CONSTRAINT PARKING_PK PRIMARY KEY (parkid)
+);
+
+ALTER TABLE parking
+    ADD CONSTRAINT FK_parking_id_Place_id FOREIGN KEY (id)
+        REFERENCES Place (id);
+
+
+
+-- pk_timetable Table Create SQL
+CREATE TABLE pk_timetable
+(
+    parkid        VARCHAR2(20)    NOT NULL, 
+    wd_start      VARCHAR2(20)    NULL, 
+    wd_end        VARCHAR2(20)    NULL, 
+    we_start      VARCHAR2(20)    NULL, 
+    we_end        VARCHAR2(20)    NULL, 
+    hd_start      VARCHAR2(20)    NULL, 
+    hd_end        VARCHAR2(20)    NULL, 
+    fee_start     NUMBER          NULL, 
+    time_start    NUMBER          NULL, 
+    fee_unit      NUMBER          NULL, 
+    time_unit     NUMBER          NULL   
+);
+ALTER TABLE pk_timetable
+    ADD CONSTRAINT FK_pk_timetable_parkid_parking FOREIGN KEY (parkid)
+        REFERENCES parking (parkid);
+
+
+
+-- restaurant Table Create SQL
+CREATE TABLE restaurant
+(
+    id          VARCHAR2(20)    NULL, 
+    district    VARCHAR2(30)    NULL, 
+    address     VARCHAR2(120)    NULL, 
+    phone       VARCHAR2(20)    NULL   
+);
+
+
+ALTER TABLE restaurant
+    ADD CONSTRAINT FK_restaurant_id_Place_id FOREIGN KEY (id)
+        REFERENCES Place (id);
+
+
+
+-- user Table Create SQL
+CREATE TABLE walker
+(
+    id        VARCHAR2(20)    NULL, 
+    name      VARCHAR2(30)    NULL, 
+    lat       NUMBER (24,12)      NULL, 
+    lng       NUMBER (24,12)      NULL, 
+    hascar    CHAR(1)         NULL   
+);
+
+

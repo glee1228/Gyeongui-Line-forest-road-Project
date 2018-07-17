@@ -1,22 +1,34 @@
 package domain;
 
 public class Pk_TimeTableDTO extends ParkingDTO{
-	private String parkid;
-	private String wd_start;
-	private String wd_end;
-	private String we_start;
-	private String we_end;
-	private String hd_start;
-	private String hd_end;
+	private int wd_start;
+	private int wd_end;
+	private int we_start;
+	private int we_end;
+	private int hd_start;
+	private int hd_end;
 	private int fee_start;
 	private int time_start;
 	private int fee_unit;
 	private int time_unit;
-	public Pk_TimeTableDTO() {};
-	public Pk_TimeTableDTO(String parkid, String wd_start, String wd_end, String we_start, String we_end,
-			String hd_start, String hd_end, int fee_start, int time_start, int fee_unit, int time_unit) {
+	public Pk_TimeTableDTO() {
 		super();
-		this.parkid = parkid;
+	};
+	public Pk_TimeTableDTO(String id,String name,String usage,
+			String district,String address,int wd_start,int wd_end) {
+		super();
+		this.setId(id);
+		this.setName(name);
+		this.setUsage(usage);
+		this.setDistrict(district);
+		this.setAddress(address);
+		this.wd_start=wd_start;
+		this.wd_end=wd_end;
+		
+	}
+	public Pk_TimeTableDTO(int wd_start, int wd_end, int we_start, int we_end,
+			int hd_start, int hd_end, int fee_start, int time_start, int fee_unit, int time_unit) {
+		super();
 		this.wd_start = wd_start;
 		this.wd_end = wd_end;
 		this.we_start = we_start;
@@ -28,46 +40,41 @@ public class Pk_TimeTableDTO extends ParkingDTO{
 		this.fee_unit = fee_unit;
 		this.time_unit = time_unit;
 	}
-	public String getParkid() {
-		return parkid;
-	}
-	public void setParkid(String parkid) {
-		this.parkid = parkid;
-	}
-	public String getWd_start() {
+	
+	public int getWd_start() {
 		return wd_start;
 	}
-	public void setWd_start(String wd_start) {
+	public void setWd_start(int wd_start) {
 		this.wd_start = wd_start;
 	}
-	public String getWd_end() {
+	public int getWd_end() {
 		return wd_end;
 	}
-	public void setWd_end(String wd_end) {
+	public void setWd_end(int wd_end) {
 		this.wd_end = wd_end;
 	}
-	public String getWe_start() {
+	public int getWe_start() {
 		return we_start;
 	}
-	public void setWe_start(String we_start) {
+	public void setWe_start(int we_start) {
 		this.we_start = we_start;
 	}
-	public String getWe_end() {
+	public int getWe_end() {
 		return we_end;
 	}
-	public void setWe_end(String we_end) {
+	public void setWe_end(int we_end) {
 		this.we_end = we_end;
 	}
-	public String getHd_start() {
+	public int getHd_start() {
 		return hd_start;
 	}
-	public void setHd_start(String hd_start) {
+	public void setHd_start(int hd_start) {
 		this.hd_start = hd_start;
 	}
-	public String getHd_end() {
+	public int getHd_end() {
 		return hd_end;
 	}
-	public void setHd_end(String hd_end) {
+	public void setHd_end(int hd_end) {
 		this.hd_end = hd_end;
 	}
 	public int getFee_start() {
@@ -97,9 +104,8 @@ public class Pk_TimeTableDTO extends ParkingDTO{
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Pk_TimeTableDTO [parkid=");
-		builder.append(parkid);
-		builder.append(", wd_start=");
+		builder.append(super.toString());
+		builder.append(" wd_start=");
 		builder.append(wd_start);
 		builder.append(", wd_end=");
 		builder.append(wd_end);
@@ -119,9 +125,31 @@ public class Pk_TimeTableDTO extends ParkingDTO{
 		builder.append(fee_unit);
 		builder.append(", time_unit=");
 		builder.append(time_unit);
-		builder.append("]");
+		builder.append(", getParkid()=");
+		builder.append(getParkid());
+		builder.append(", getDistrict()=");
+		builder.append(getDistrict());
+		builder.append(", getAddress()=");
+		builder.append(getAddress());
+		builder.append(", getVolume()=");
+		builder.append(getVolume());
+		builder.append(", getPhone()=");
+		builder.append(getPhone());
+		builder.append(", getId()=");
+		builder.append(getId());
+		builder.append(", getName()=");
+		builder.append(getName());
+		builder.append(", getType()=");
+		builder.append(getType());
+		builder.append(", getUsage()=");
+		builder.append(getUsage());
+		builder.append(", getLat()=");
+		builder.append(getLat());
+		builder.append(", getLng()=");
+		builder.append(getLng());
 		return builder.toString();
 	}
+
 	
 	
 	

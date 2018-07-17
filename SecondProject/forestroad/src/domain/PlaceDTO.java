@@ -7,16 +7,16 @@ public class PlaceDTO {
 	private String usage;
 	private double lat;
 	private double lng;
+	private double distance;
 	
 	public PlaceDTO() {};
-	public PlaceDTO(String id, String name, String type, String usage, double lat, double lng) {
+	public PlaceDTO(String id, String name, String type, String usage,double distance) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.type = type;
 		this.usage = usage;
-		this.lat = lat;
-		this.lng = lng;
+		this.distance=distance;
 	}
 	public String getId() {
 		return id;
@@ -54,19 +54,24 @@ public class PlaceDTO {
 	public void setLng(double lng) {
 		this.lng = lng;
 	}
+	
+	public double getDistance() {
+		return distance;
+	}
+	public void setDistance(double distance) {
+		this.distance = distance;
+	}
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("ID= ");
-		builder.append(id);
-		builder.append(", 이름=");
+		//builder.append("ID= ");
+		//builder.append(id);
+		builder.append("이름=");
 		builder.append(name);
 		builder.append(", 분류=");
 		builder.append(usage);
-		builder.append(", 위도=");
-		builder.append(lat);
-		builder.append(", 경도=");
-		builder.append(lng);
+		builder.append(", 떨어진 거리=");
+		builder.append(distance);
 		builder.append(" ");
 		return builder.toString();
 	}

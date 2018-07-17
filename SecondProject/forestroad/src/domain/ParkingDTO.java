@@ -1,28 +1,32 @@
 package domain;
 
 public class ParkingDTO extends PlaceDTO{
-	private String id;
 	private String parkid;
 	private String district;
 	private String address;
 	private int volume;
 	private String phone;
 	
-	public ParkingDTO() {};
-	public ParkingDTO(String id, String parkid, String district, String address, int volume, String phone) {
+	public ParkingDTO() {
 		super();
-		this.id = id;
+	};
+	public ParkingDTO(String id,String name,String usage, String district, String address,String phone,int volume,double distance) {
+		this.setId(id);
+		this.setName(name);
+		this.setUsage(usage);
+		this.district = district;
+		this.address = address;
+		this.phone = phone;
+		this.volume=volume;
+		this.setDistance(distance);
+	}
+	public ParkingDTO( String parkid, String district, String address, int volume, String phone) {
+		super();
 		this.parkid = parkid;
 		this.district = district;
 		this.address = address;
 		this.volume = volume;
 		this.phone = phone;
-	}
-	public String getId() {
-		return id;
-	}
-	public void setId(String id) {
-		this.id = id;
 	}
 	public String getParkid() {
 		return parkid;
@@ -57,21 +61,18 @@ public class ParkingDTO extends PlaceDTO{
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("ParkingDTO [id=");
-		builder.append(id);
-		builder.append(", parkid=");
-		builder.append(parkid);
-		builder.append(", district=");
+		builder.append(super.toString());
+		builder.append("지역구=");
 		builder.append(district);
-		builder.append(", address=");
+		builder.append(", 주소=");
 		builder.append(address);
-		builder.append(", volume=");
+		builder.append(", 주차 차량 가능 수=");
 		builder.append(volume);
-		builder.append(", phone=");
+		builder.append(", 전화 번호=");
 		builder.append(phone);
-		builder.append("]");
 		return builder.toString();
 	}
+
 	
 	
 }

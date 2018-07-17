@@ -13,15 +13,14 @@ public class RestaurantDTO extends PlaceDTO {
 		this.phone = phone;
 	}
 	public RestaurantDTO(String id, String name, String type, String usage, 
-			double lat, double lng,String district, String address, String phone)
+			double distance,String district, String address, String phone)
 	{
 		super();
 		this.setId(id);
 		this.setName(name);
 		this.setType(type);
 		this.setUsage(usage);
-		this.setLat(lat);
-		this.setLng(lng);
+		this.setDistance(distance);
 		this.district = district;
 		this.address = address;
 		this.phone = phone;

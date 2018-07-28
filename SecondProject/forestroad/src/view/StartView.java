@@ -40,7 +40,7 @@ public class StartView {
 				break;
 			//로그인
 			case 2:
-				View.signInMenu();
+				//View.signInMenu();
 				boolean endcheck = false;
 
 				System.out.println("경의선 숲길의 다양한 검색 기능 이용하시겠습니까?");

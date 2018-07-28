@@ -14,7 +14,6 @@ public class DButil {
 			e.printStackTrace();
 		}
 	}
-	//Connection 객체 반환
 	public static Connection getConnection() throws SQLException {
 		final String ID ="MULCAM";
 		final String PW = "ldh1228";
@@ -22,7 +21,6 @@ public class DButil {
 		return DriverManager.getConnection(URL,ID,PW);	
 	}
 	
-	//select문 자원 반환 -Connection, Statement, ResultSet
 	public static void close(Connection con, Statement stmt, ResultSet rs) {
 		try {
 			if (rs != null) {
@@ -38,7 +36,6 @@ public class DButil {
 				con = null;
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -53,10 +50,8 @@ public class DButil {
 				con = null;
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
-	// DML 자원 반환
 
 }
